@@ -148,12 +148,12 @@ const PatchPosts = async(req:Request,res: Response):Promise<Response> => {
                     'Content-Type': 'application/json; charset=UTF-8'
                 }
             }
-        );
+        ).then(result => result.data);
 
         return res.status(200).send({
             status: 200,
             message: "Ok",
-            data: patch.data
+            data: "Data patched"
         });
     } catch (error:any) {
         if (error != null && error instanceof Error){
